@@ -5,7 +5,6 @@ import { TasksContext } from "./TasksContext";
 import toast from "react-hot-toast";
 
 const Form = () => {
-  const x = 123;
   const [tasks, setTasks] = useState([
     { id: Date.now(), value: "", title: "Task" },
   ]);
@@ -54,31 +53,15 @@ const Form = () => {
     <div className="flex flex-col items-center justify-center bg-blue-200 text-black p-5 rounded-xl w-screen max-w-lg h-[80vh]">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-row justify-between items-center w-full mt-auto"
+        className="flex flex-row justify-center items-center w-full mt-auto"
       >
-        <div className="flex flex-row justify-center self-center w-2/3 rounded-lg overflow-hidden">
-          <input
-            type="text"
-            value={taskLabel}
-            onChange={(e) => setTaskLabel(e.target.value)}
-            className="px-4 py-2 w-full  text-blue-950"
-            placeholder="Add Task Label"
-          />
-          <button
-            type="button"
-            onClick={() => handleAddTaskLabel()}
-            className=" bg-blue-500 border-blue-500 px-5 text-white hover:bg-blue-500 hover:text-white transition-all"
-          >
-            <CirclePlus size={20} />
-          </button>
-        </div>
-        <button
-          type="submit"
-          className="flex flex-row gap-2 items-center px-4 py-2 rounded-lg font-medium bg-blue-500 hover:bg-blue-700 active:bg-blue-600 text-white transition-all"
-        >
-          Submit
-          <SendHorizontal size={20} />
-        </button>
+        <input
+          type="text"
+          value={taskLabel}
+          onChange={(e) => setTaskLabel(e.target.value)}
+          className="px-4 py-2 w-1/2 rounded-md  text-blue-950 "
+          placeholder="Add Task Title"
+        />
       </form>
       <div className="flex flex-1 flex-col m-5 w-full overflow-y-auto">
         {tasks.map((task) => (
@@ -91,6 +74,24 @@ const Form = () => {
             />
           </div>
         ))}
+      </div>
+      <div className="w-full flex flex-row items-center justify-evenly">
+        <button
+          type="button"
+          onClick={() => handleAddTaskLabel()}
+          className="flex flex-row gap-2 items-center px-4 py-2 rounded-lg font-medium bg-blue-500 hover:bg-blue-700 active:bg-blue-600 text-white transition-all"
+        >
+          Add Task
+          <CirclePlus size={20} />
+        </button>
+
+        <button
+          type="submit"
+          className="flex flex-row gap-2 items-center px-4 py-2 rounded-lg font-medium bg-blue-500 hover:bg-blue-700 active:bg-blue-600 text-white transition-all"
+        >
+          Submit
+          <SendHorizontal size={20} />
+        </button>
       </div>
     </div>
   );
