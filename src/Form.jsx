@@ -5,6 +5,7 @@ import { TasksContext } from "./TasksContext";
 import toast from "react-hot-toast";
 
 const Form = () => {
+  const x = 123;
   const [tasks, setTasks] = useState([
     { id: Date.now(), value: "", title: "Task" },
   ]);
